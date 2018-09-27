@@ -12,6 +12,7 @@ func init() {
 	return
 }
 
+// 主要函数
 func main() {
 
 	return
