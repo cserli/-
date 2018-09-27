@@ -64,7 +64,7 @@ func init() {
 	var SysCanShu = runtime.NumCPU()
 
 	// 初始化cache
-	//	var cache = cache2go.Cache("myCache")
+	// var cache = cache2go.Cache("myCache")
 	// 初始化map
 	M = concurrent.NewConcurrentMap()
 	// 屏蔽日志

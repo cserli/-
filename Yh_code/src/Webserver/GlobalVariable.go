@@ -21,6 +21,7 @@ type OnlineUser struct {
 	Connection *websocket.Conn           // 链接的信息
 	StrMD5     string                    // PC的标识，主要是针对PC的绑定数据；；区分所有的玩家
 	MapSafe    *concurrent.ConcurrentMap // 并发安全的map
+	RecChan
 }
 
 // 定义全局的变量的数据
