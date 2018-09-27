@@ -9,17 +9,19 @@ import (
 // 初始化
 func init() {
 	fmt.Println("init func!!!")
+
 	return
 }
 
 //  主函数
 func main() {
-	http.HandleFunc("/", helloWorldHandler)
+	http.HandleFunc("/", yh_web_server)
 	http.ListenAndServe(":80", nil)
+	return
 }
 
 // 处理函数
-func helloWorldHandler(w http.ResponseWriter, r *http.Request) {
+func yh_web_server(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "hello 航语web!!!")
 	return
 }
