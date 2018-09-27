@@ -20,8 +20,11 @@ import (
 //主程序
 //
 //参数说明：
-//	启动服务器端：  goServer [port]				eg: goServer port = 6001
+//	启动服务器端：
+//  goServer [port]
+//  eg: goServer port = 6001
 //  var url = "ws://www.strawberry.com:8000/goServer?data="
+//
 ////////////////////////////////////////////////////////
 func main() {
 
@@ -179,7 +182,7 @@ func (this *OnlineUser) HandleCltProtocol(protocol interface{}, protocol2 interf
 			//发消息给客户端
 			ErrorST := G_Error_All{
 				Protocol: Proto_Data.G_Error_Proto, // 主协议
-				//				Protocol2: Proto2_Data.G_Error_All_Proto, // 子协议
+				// Protocol2: Proto2_Data.G_Error_All_Proto, // 子协议
 				ErrCode: "80006",
 				ErrMsg:  "亲，您发的数据的格式不对！" + strerr,
 			}
