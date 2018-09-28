@@ -16,7 +16,7 @@ func init() {
 //  主函数
 func main() {
 	http.HandleFunc("/", yh_web_server)
-	http.ListenAndServe(":80", nil)
+	http.ListenAndServe(":8080", nil)
 	return
 }
 
