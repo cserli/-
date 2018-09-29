@@ -13,6 +13,7 @@ type Net_Heart_Beating struct {
 	Protocol  uint32 // 主协议
 	Protocol2 uint32 // 子协议
 	OpenID    string // 手机的OpenID
+	Data      string // data  kaifa
 }
 
 //--------------------------------------------------------------------------------
