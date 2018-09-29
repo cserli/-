@@ -23,6 +23,7 @@ func (m *DemoM) DoWork(w *Work, whoT *string) error {
 	return nil
 }
 
+// 数据操作
 func main() {
 	str := new(DemoM)
 	rpc.Register(str)
