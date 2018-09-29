@@ -29,7 +29,7 @@ func main() {
 		fmt.Println("shiming call error    ")
 		fmt.Println("Call 的时候发生了错误了哦  err=", err1)
 	}
-	//
+	// 数据操作 应用开发
 	fmt.Println("收到信息了", resive)
 	return
 }
