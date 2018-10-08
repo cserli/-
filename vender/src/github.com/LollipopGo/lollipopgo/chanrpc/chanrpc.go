@@ -11,6 +11,7 @@ import (
 
 // one server per goroutine (goroutine not safe)
 // one client per goroutine (goroutine not safe)
+// 结构处理操作
 type Server struct {
 	// id -> function
 	//
@@ -42,6 +43,7 @@ type RetInfo struct {
 	cb interface{}
 }
 
+// 客户端结构
 type Client struct {
 	s               *Server
 	chanSyncRet     chan *RetInfo
@@ -49,6 +51,7 @@ type Client struct {
 	pendingAsynCall int
 }
 
+// 初始化server
 func NewServer(l int) *Server {
 	s := new(Server)
 	s.functions = make(map[interface{}]interface{})
@@ -56,6 +59,7 @@ func NewServer(l int) *Server {
 	return s
 }
 
+// 断言操作
 func assert(i interface{}) []interface{} {
 	if i == nil {
 		return nil
@@ -81,6 +85,7 @@ func (s *Server) Register(id interface{}, f interface{}) {
 	s.functions[id] = f
 }
 
+// 返回数据
 func (s *Server) ret(ci *CallInfo, ri *RetInfo) (err error) {
 	if ci.chanRet == nil {
 		return
@@ -97,6 +102,7 @@ func (s *Server) ret(ci *CallInfo, ri *RetInfo) (err error) {
 	return
 }
 
+// 执行操作  -- 内部操作
 func (s *Server) exec(ci *CallInfo) (err error) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -128,6 +134,7 @@ func (s *Server) exec(ci *CallInfo) (err error) {
 	panic("bug")
 }
 
+// 执行操作
 func (s *Server) Exec(ci *CallInfo) {
 	err := s.exec(ci)
 	if err != nil {
@@ -136,6 +143,7 @@ func (s *Server) Exec(ci *CallInfo) {
 }
 
 // goroutine safe
+// 异步操作
 func (s *Server) Go(id interface{}, args ...interface{}) {
 	f := s.functions[id]
 	if f == nil {
@@ -186,8 +194,8 @@ func (s *Server) Open(l int) *Client {
 
 func NewClient(l int) *Client {
 	c := new(Client)
-	c.chanSyncRet = make(chan *RetInfo, 1)
-	c.ChanAsynRet = make(chan *RetInfo, l)
+	c.chanSyncRet = make(chan *RetInfo, 1) // 同步
+	c.ChanAsynRet = make(chan *RetInfo, l) // 异步
 	return c
 }
 

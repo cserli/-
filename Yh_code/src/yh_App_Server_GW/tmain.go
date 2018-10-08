@@ -22,5 +22,7 @@ func main() {
 func AuthFunc(w http.ResponseWriter, r *http.Request) {
 	// 数据发送到grpc 认证服务器
 	io.WriteString(w, "hello 航语认证!")
+	// grpc   客户端实现
+
 	return
 }

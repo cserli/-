@@ -15,8 +15,8 @@ func init() {
 
 //  主函数
 func main() {
-	http.HandleFunc("/DM_App", yh_web_server)
-	http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/test", yh_web_server)
+	http.ListenAndServe(":7878", nil)
 	return
 }
 

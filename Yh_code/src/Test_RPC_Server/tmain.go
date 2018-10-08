@@ -23,8 +23,8 @@ func (m *DemoM) DoWork(w *Work, whoT *string) error {
 	return nil
 }
 
-// 数据操作
 func main() {
+	// 需要一个注册函数 -- 注册消息操作的 函数的操作
 	str := new(DemoM)
 	rpc.Register(str)
 
@@ -43,7 +43,8 @@ func main() {
 		if err != nil {
 			continue
 		}
-		jsonrpc.ServeConn(conn)
+		// 并发处理  ---  数据操作 应用操作
+		go jsonrpc.ServeConn(conn)
 
 	}
 
