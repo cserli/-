@@ -20,7 +20,7 @@ import (
 	"code.google.com/p/mahonia"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
-	pb "google.golang.org/grpc/examples/helloworld/helloworld"
+	pb "google.golang.org/grpc/examples/helloworld/helloworld" // 数据处理
 )
 
 // 问答或者吐槽保存
@@ -37,7 +37,7 @@ type SSSSbak struct {
 	Data interface{}
 }
 
-// 问答或则吐槽
+// 数据处理操作
 func WenDaOrTuCao(strnickName, stravatarUrl, strdata string, w http.ResponseWriter) {
 	glog.Info("strnickName, stravatarUrl, strparam", strnickName, stravatarUrl, strdata)
 	conn, err := grpc.Dial(address, grpc.WithInsecure())
@@ -50,9 +50,9 @@ func WenDaOrTuCao(strnickName, stravatarUrl, strdata string, w http.ResponseWrit
 	if len(os.Args) > 1 {
 		name = os.Args[1]
 	}
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second) // 超时设置 --
 	defer cancel()
-
+	// 远程回调
 	r, err := c.SayHello(ctx, &pb.HelloRequest{Name: name})
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
