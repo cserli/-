@@ -15,7 +15,9 @@ import (
 	//	"bytes"
 	"encoding/base64"
 	"time"
+	//	"unicode/utf8"
 
+	"code.google.com/p/mahonia"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	pb "google.golang.org/grpc/examples/helloworld/helloworld"
@@ -63,16 +65,29 @@ func WenDaOrTuCao(strnickName, stravatarUrl, strdata string, w http.ResponseWrit
 	b, _ := json.Marshal(data)
 	log.Printf("Greeting b: %s", string(b))
 	// fmt.Fprint(w, r.Message)
-	bbw := PswEncrypt(string(b))
+	// str := ConvertToString(string(b), "gbk", "utf-8")
+	// bbw := PswEncrypt(string(b))
+	// bbw, _ := Encrypt(b, []byte(sKey))
 	// bbw := PswEncrypt("abcsfsssfsfsfsfsfsfsfsfs3535353535353533")
 	// base64
-	encodeString := base64.StdEncoding.EncodeToString([]byte(bbw))
+	// bbbb := bbw // + "\x00"
+	encodeString := base64.StdEncoding.EncodeToString(b)
 	ddd := SSSSbak{
 		Data: encodeString,
 	}
 	bb, _ := json.Marshal(ddd)
 	log.Printf("Greeting b: %s", string(bb))
-	//	fmt.Fprint(w, string(bb))
+	// fmt.Fprint(w, string(bb))
 	fmt.Fprint(w, string(bb))
 	return
+}
+
+// 数据处理
+func ConvertToString(src string, srcCode string, tagCode string) string {
+	srcCoder := mahonia.NewDecoder(srcCode)
+	srcResult := srcCoder.ConvertString(src)
+	tagCoder := mahonia.NewDecoder(tagCode)
+	_, cdata, _ := tagCoder.Translate([]byte(srcResult), true)
+	result := string(cdata)
+	return result
 }
