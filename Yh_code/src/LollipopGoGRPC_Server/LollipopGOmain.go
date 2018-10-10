@@ -16,6 +16,7 @@
  *
  */
 
+ //   proto
 //go:generate protoc -I ../helloworld --go_out=plugins=grpc:../helloworld ../helloworld/helloworld.proto
 
 package main
@@ -43,7 +44,7 @@ func Strings_Split(Data string, Split string) []string {
 	return strings.Split(Data, Split)
 }
 
-//   数据曹祖
+//  数据处理操作
 func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
 	//	data := Strings_Split(in.Name, "☢")
 	//	if len(data) == 3 {
