@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ca16dc9-a9da-44bc-a7e5-e1bf29f471dc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Yh_code/src/LollipopGoGRPC_Server/LollipopGOmain.go" beforeDir="false" afterPath="$PROJECT_DIR$/Yh_code/src/LollipopGoGRPC_Server/LollipopGOmain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Yh_code/src/LollipopGoGRPC_Client/gRPC_Send.go" beforeDir="false" afterPath="$PROJECT_DIR$/Yh_code/src/LollipopGoGRPC_Client/gRPC_Send.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,31 +14,32 @@
     <session id="-1048810499">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="go" value="1" />
+          <entry key="go" value="7" />
           <entry key="md" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Go" value="1" />
+          <entry key="Go" value="7" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="50" />
+          <entry key="go" value="154" />
           <entry key="md" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Go" value="50" />
+          <entry key="Go" value="154" />
           <entry key="PLAIN_TEXT" value="15" />
         </counts>
       </usages-collector>
@@ -46,11 +47,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Yh_code/src/LollipopGoGRPC_Server/LollipopGOmain.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="361">
               <caret line="19" column="99" selection-start-line="19" selection-start-column="99" selection-end-line="19" selection-end-column="99" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/Go/src/reflect/all_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1729">
+              <caret line="47" column="17" lean-forward="true" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://C:/Go/src/reflect/deepequal.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1083">
+              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://C:/Go/src/reflect/value.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="198" column="37" lean-forward="true" selection-start-line="198" selection-start-column="37" selection-end-line="198" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Yh_code/src/LollipopGoGRPC_Client/t_main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-496">
+              <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Yh_code/src/LollipopGoGRPC_Client/gRPC_Send.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1292">
+              <caret line="92" column="43" lean-forward="true" selection-start-line="92" selection-start-column="43" selection-end-line="92" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vender/src/google.golang.org/grpc/examples/helloworld/helloworld/helloworld.pb.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -74,6 +129,7 @@
       <list>
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Yh_code/src/LollipopGoGRPC_Server/LollipopGOmain.go" />
+        <option value="$PROJECT_DIR$/Yh_code/src/LollipopGoGRPC_Client/gRPC_Send.go" />
       </list>
     </option>
   </component>
@@ -83,7 +139,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="260" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
@@ -107,28 +163,20 @@
             <path>
               <item name="-" type="b2602c69:ProjectViewProjectNode" />
               <item name="-" type="462c0819:PsiDirectoryNode" />
-              <item name="vender" type="462c0819:PsiDirectoryNode" />
+              <item name="Yh_code" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="-" type="b2602c69:ProjectViewProjectNode" />
               <item name="-" type="462c0819:PsiDirectoryNode" />
-              <item name="vender" type="462c0819:PsiDirectoryNode" />
+              <item name="Yh_code" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="-" type="b2602c69:ProjectViewProjectNode" />
               <item name="-" type="462c0819:PsiDirectoryNode" />
-              <item name="vender" type="462c0819:PsiDirectoryNode" />
+              <item name="Yh_code" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="yh_webappprotocol" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="-" type="b2602c69:ProjectViewProjectNode" />
-              <item name="-" type="462c0819:PsiDirectoryNode" />
-              <item name="vender" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="yh_webappprotocol" type="462c0819:PsiDirectoryNode" />
-              <item name="proto2" type="462c0819:PsiDirectoryNode" />
+              <item name="LollipopGoGRPC_Client" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="-" type="b2602c69:ProjectViewProjectNode" />
@@ -144,6 +192,20 @@
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
               <item name="Go SDK 1.9.2" type="20ee2d1f:SyntheticLibraryElementNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go SDK 1.9.2" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="crypto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="-" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Go SDK 1.9.2" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="reflect" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="-" type="b2602c69:ProjectViewProjectNode" />
@@ -199,6 +261,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17857143" />
@@ -209,7 +272,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32899022" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32899022" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -238,6 +301,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="19" column="99" selection-start-line="19" selection-start-column="99" selection-end-line="19" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/reflect/all_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1729">
+          <caret line="47" column="17" lean-forward="true" selection-start-line="47" selection-start-column="17" selection-end-line="47" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yh_code/src/LollipopGoGRPC_Client/t_main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-496">
+          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vender/src/google.golang.org/grpc/examples/helloworld/helloworld/helloworld.pb.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Yh_code/src/LollipopGoGRPC_Client/gRPC_Send.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="92" column="43" lean-forward="true" selection-start-line="92" selection-start-column="43" selection-end-line="92" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/reflect/deepequal.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1083">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/reflect/value.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="198" column="37" lean-forward="true" selection-start-line="198" selection-start-column="37" selection-end-line="198" selection-end-column="37" />
         </state>
       </provider>
     </entry>

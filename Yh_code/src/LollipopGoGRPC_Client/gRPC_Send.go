@@ -7,23 +7,25 @@ import (
 	"encoding/json"
 	"fmt"
 	"glog-master"
+
 	//	"io"
 	"log"
 	"net/http"
 	"os"
+
 	//	"strings"
 	//	"bytes"
 	"encoding/base64"
 	"time"
+
 	//	"unicode/utf8"
 
 	"code.google.com/p/mahonia"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
-	pb "google.golang.org/grpc/examples/helloworld/helloworld" // 数据处理
+	pb "google.golang.org/grpc/examples/helloworld/helloworld" // 数据处理  protobuf 内服务
 )
 
-// 问答或者吐槽保存
 const (
 	address     = "localhost:50051"
 	defaultName = "world"
@@ -40,11 +42,13 @@ type SSSSbak struct {
 // 数据处理操作
 func WenDaOrTuCao(strnickName, stravatarUrl, strdata string, w http.ResponseWriter) {
 	glog.Info("strnickName, stravatarUrl, strparam", strnickName, stravatarUrl, strdata)
+	// 服务地址
 	conn, err := grpc.Dial(address, grpc.WithInsecure())
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
 	defer conn.Close()
+	//  客户端申请操作 --  也就是相当于注册一个客户端事件
 	c := pb.NewGreeterClient(conn)
 	name := strnickName + "☢" + stravatarUrl + "☢" + strdata
 	if len(os.Args) > 1 {
@@ -52,7 +56,7 @@ func WenDaOrTuCao(strnickName, stravatarUrl, strdata string, w http.ResponseWrit
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second) // 超时设置 --
 	defer cancel()
-	// 远程回调
+	// 远程回调  ---  函数的实现操作的
 	r, err := c.SayHello(ctx, &pb.HelloRequest{Name: name})
 	if err != nil {
 		log.Fatalf("could not greet: %v", err)
