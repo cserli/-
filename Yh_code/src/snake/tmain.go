@@ -34,8 +34,6 @@ import (
 	"time"
 )
 
-// pm.babaliuliu.com
-// admin 123456lI
 func init() {
 
 	flag.Set("alsologtostderr", "true") // 日志写入文件的同时，输出到stderr
