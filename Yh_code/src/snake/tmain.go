@@ -175,10 +175,8 @@ func main() {
 
 		// 获取蛇头位置的原值，来判断是否撞车，或者吃到食物
 		eat := area[head.i][head.j]
-
 		if eat == 'F' { // 吃到食物
 			food = false
-
 			// 增加蛇的尺寸，并且不移动蛇尾
 			size++
 		} else if eat == 0 { // 普通移动
