@@ -1,10 +1,34 @@
 package main
 
+/*
+#include <windows.h>
+#include <conio.h>
+// 使用了WinAPI来移动控制台的光标
+void gotoxy(int x,int y)
+{
+	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);  // 获取控制台句柄
+    SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY | FOREGROUND_RED); // 设置为红色
+    COORD c;
+    c.X=x,c.Y=y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),c);
+}
+// 从键盘获取一次按键，但不显示到控制台
+int direct()
+{
+    return _getch();
+}
+// 控制台清屏数据
+void system_cls()
+{
+	system("cls");
+}
+*/
+import "C" // go中可以嵌入C语言的函数
+
 import (
-	"C" // go中可以嵌入C语言的函数
 	"flag"
 	"fmt"
-	"glog-master"
+	_ "glog-master"
 	"math/rand"
 	"os"
 	"time"
@@ -16,35 +40,16 @@ func init() {
 	flag.Set("log_dir", "./log")        // 日志文件保存目录
 	flag.Set("v", "3")                  // 配置V输出的等级。
 	flag.Parse()
-	glog.Info("Entty INIT")
 	initbak()
 	return
 }
-
-/*
-#include <windows.h>
-#include <conio.h>
-
-// 使用了WinAPI来移动控制台的光标
-void gotoxy(int x,int y)
-{
-    COORD c;
-    c.X=x,c.Y=y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),c);
-}
-
-// 从键盘获取一次按键，但不显示到控制台
-int direct()
-{
-    return _getch();
-}
-*/
 
 // 表示光标的位置
 type loct struct {
 	i, j int
 }
 
+//
 var (
 	area = [20][20]byte{} // 记录了蛇、食物的信息
 	food bool             // 当前是否有食物
@@ -74,9 +79,11 @@ func initbak() {
 	area[4][4] = 'H'
 	rand.Seed(int64(time.Now().Unix()))
 
+	// 清屏操作
+	C.system_cls()
+
 	// 输出初始画面
-	fmt.Fprintln(os.Stderr,
-		`
+	fmt.Fprintln(os.Stderr, `
   #-----------------------------------------#
   |                                         |
   |                                         |
