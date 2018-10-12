@@ -46,9 +46,120 @@ func (x Person_PhoneType) String() string {
 	return proto.EnumName(Person_PhoneType_name, int32(x))
 }
 func (Person_PhoneType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_lollipopgo_34f070c209dcd835, []int{0, 0}
+	return fileDescriptor_lollipopgo_8f61ea1f771b65de, []int{2, 0}
 }
 
+// 数据统计操作
+type AddressBook struct {
+	People               []*Person `protobuf:"bytes,1,rep,name=people" json:"people,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
+	XXX_sizecache        int32     `json:"-"`
+}
+
+func (m *AddressBook) Reset()         { *m = AddressBook{} }
+func (m *AddressBook) String() string { return proto.CompactTextString(m) }
+func (*AddressBook) ProtoMessage()    {}
+func (*AddressBook) Descriptor() ([]byte, []int) {
+	return fileDescriptor_lollipopgo_8f61ea1f771b65de, []int{0}
+}
+func (m *AddressBook) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *AddressBook) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_AddressBook.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *AddressBook) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddressBook.Merge(dst, src)
+}
+func (m *AddressBook) XXX_Size() int {
+	return m.Size()
+}
+func (m *AddressBook) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddressBook.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddressBook proto.InternalMessageInfo
+
+func (m *AddressBook) GetPeople() []*Person {
+	if m != nil {
+		return m.People
+	}
+	return nil
+}
+
+// 刷新操作
+type SearchRequest struct {
+	Query                string   `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
+	PageNumber           int32    `protobuf:"varint,2,opt,name=page_number,json=pageNumber,proto3" json:"page_number,omitempty"`
+	ResultPerPage        int32    `protobuf:"varint,3,opt,name=result_per_page,json=resultPerPage,proto3" json:"result_per_page,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SearchRequest) Reset()         { *m = SearchRequest{} }
+func (m *SearchRequest) String() string { return proto.CompactTextString(m) }
+func (*SearchRequest) ProtoMessage()    {}
+func (*SearchRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_lollipopgo_8f61ea1f771b65de, []int{1}
+}
+func (m *SearchRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *SearchRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_SearchRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalTo(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (dst *SearchRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SearchRequest.Merge(dst, src)
+}
+func (m *SearchRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *SearchRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SearchRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SearchRequest proto.InternalMessageInfo
+
+func (m *SearchRequest) GetQuery() string {
+	if m != nil {
+		return m.Query
+	}
+	return ""
+}
+
+func (m *SearchRequest) GetPageNumber() int32 {
+	if m != nil {
+		return m.PageNumber
+	}
+	return 0
+}
+
+func (m *SearchRequest) GetResultPerPage() int32 {
+	if m != nil {
+		return m.ResultPerPage
+	}
+	return 0
+}
+
+// 测试使用
 type Person struct {
 	Name                 string                `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	Id                   int32                 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
@@ -62,7 +173,7 @@ func (m *Person) Reset()         { *m = Person{} }
 func (m *Person) String() string { return proto.CompactTextString(m) }
 func (*Person) ProtoMessage()    {}
 func (*Person) Descriptor() ([]byte, []int) {
-	return fileDescriptor_lollipopgo_34f070c209dcd835, []int{0}
+	return fileDescriptor_lollipopgo_8f61ea1f771b65de, []int{2}
 }
 func (m *Person) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -130,7 +241,7 @@ func (m *Person_PhoneNumber) Reset()         { *m = Person_PhoneNumber{} }
 func (m *Person_PhoneNumber) String() string { return proto.CompactTextString(m) }
 func (*Person_PhoneNumber) ProtoMessage()    {}
 func (*Person_PhoneNumber) Descriptor() ([]byte, []int) {
-	return fileDescriptor_lollipopgo_34f070c209dcd835, []int{0, 0}
+	return fileDescriptor_lollipopgo_8f61ea1f771b65de, []int{2, 0}
 }
 func (m *Person_PhoneNumber) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -173,120 +284,11 @@ func (m *Person_PhoneNumber) GetType() Person_PhoneType {
 	return Person_MOBILE
 }
 
-type AddressBook struct {
-	People               []*Person `protobuf:"bytes,1,rep,name=people" json:"people,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
-}
-
-func (m *AddressBook) Reset()         { *m = AddressBook{} }
-func (m *AddressBook) String() string { return proto.CompactTextString(m) }
-func (*AddressBook) ProtoMessage()    {}
-func (*AddressBook) Descriptor() ([]byte, []int) {
-	return fileDescriptor_lollipopgo_34f070c209dcd835, []int{1}
-}
-func (m *AddressBook) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *AddressBook) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_AddressBook.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (dst *AddressBook) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_AddressBook.Merge(dst, src)
-}
-func (m *AddressBook) XXX_Size() int {
-	return m.Size()
-}
-func (m *AddressBook) XXX_DiscardUnknown() {
-	xxx_messageInfo_AddressBook.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_AddressBook proto.InternalMessageInfo
-
-func (m *AddressBook) GetPeople() []*Person {
-	if m != nil {
-		return m.People
-	}
-	return nil
-}
-
-// 刷新操作
-type SearchRequest struct {
-	Query                string   `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
-	PageNumber           int32    `protobuf:"varint,2,opt,name=page_number,json=pageNumber,proto3" json:"page_number,omitempty"`
-	ResultPerPage        int32    `protobuf:"varint,3,opt,name=result_per_page,json=resultPerPage,proto3" json:"result_per_page,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *SearchRequest) Reset()         { *m = SearchRequest{} }
-func (m *SearchRequest) String() string { return proto.CompactTextString(m) }
-func (*SearchRequest) ProtoMessage()    {}
-func (*SearchRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_lollipopgo_34f070c209dcd835, []int{2}
-}
-func (m *SearchRequest) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *SearchRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_SearchRequest.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalTo(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (dst *SearchRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SearchRequest.Merge(dst, src)
-}
-func (m *SearchRequest) XXX_Size() int {
-	return m.Size()
-}
-func (m *SearchRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_SearchRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_SearchRequest proto.InternalMessageInfo
-
-func (m *SearchRequest) GetQuery() string {
-	if m != nil {
-		return m.Query
-	}
-	return ""
-}
-
-func (m *SearchRequest) GetPageNumber() int32 {
-	if m != nil {
-		return m.PageNumber
-	}
-	return 0
-}
-
-func (m *SearchRequest) GetResultPerPage() int32 {
-	if m != nil {
-		return m.ResultPerPage
-	}
-	return 0
-}
-
 func init() {
-	proto.RegisterType((*Person)(nil), "Golang.ltd.Person")
-	proto.RegisterType((*Person_PhoneNumber)(nil), "Golang.ltd.Person.PhoneNumber")
 	proto.RegisterType((*AddressBook)(nil), "Golang.ltd.AddressBook")
 	proto.RegisterType((*SearchRequest)(nil), "Golang.ltd.SearchRequest")
+	proto.RegisterType((*Person)(nil), "Golang.ltd.Person")
+	proto.RegisterType((*Person_PhoneNumber)(nil), "Golang.ltd.Person.PhoneNumber")
 	proto.RegisterEnum("Golang.ltd.Person_PhoneType", Person_PhoneType_name, Person_PhoneType_value)
 }
 
@@ -360,6 +362,70 @@ var _AddressBookOperation_serviceDesc = grpc.ServiceDesc{
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "lollipopgo.proto",
+}
+
+func (m *AddressBook) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *AddressBook) MarshalTo(dAtA []byte) (int, error) {
+	var i int
+	_ = i
+	var l int
+	_ = l
+	if len(m.People) > 0 {
+		for _, msg := range m.People {
+			dAtA[i] = 0xa
+			i++
+			i = encodeVarintLollipopgo(dAtA, i, uint64(msg.Size()))
+			n, err := msg.MarshalTo(dAtA[i:])
+			if err != nil {
+				return 0, err
+			}
+			i += n
+		}
+	}
+	return i, nil
+}
+
+func (m *SearchRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *SearchRequest) MarshalTo(dAtA []byte) (int, error) {
+	var i int
+	_ = i
+	var l int
+	_ = l
+	if len(m.Query) > 0 {
+		dAtA[i] = 0xa
+		i++
+		i = encodeVarintLollipopgo(dAtA, i, uint64(len(m.Query)))
+		i += copy(dAtA[i:], m.Query)
+	}
+	if m.PageNumber != 0 {
+		dAtA[i] = 0x10
+		i++
+		i = encodeVarintLollipopgo(dAtA, i, uint64(m.PageNumber))
+	}
+	if m.ResultPerPage != 0 {
+		dAtA[i] = 0x18
+		i++
+		i = encodeVarintLollipopgo(dAtA, i, uint64(m.ResultPerPage))
+	}
+	return i, nil
 }
 
 func (m *Person) Marshal() (dAtA []byte, err error) {
@@ -438,70 +504,6 @@ func (m *Person_PhoneNumber) MarshalTo(dAtA []byte) (int, error) {
 	return i, nil
 }
 
-func (m *AddressBook) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *AddressBook) MarshalTo(dAtA []byte) (int, error) {
-	var i int
-	_ = i
-	var l int
-	_ = l
-	if len(m.People) > 0 {
-		for _, msg := range m.People {
-			dAtA[i] = 0xa
-			i++
-			i = encodeVarintLollipopgo(dAtA, i, uint64(msg.Size()))
-			n, err := msg.MarshalTo(dAtA[i:])
-			if err != nil {
-				return 0, err
-			}
-			i += n
-		}
-	}
-	return i, nil
-}
-
-func (m *SearchRequest) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalTo(dAtA)
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *SearchRequest) MarshalTo(dAtA []byte) (int, error) {
-	var i int
-	_ = i
-	var l int
-	_ = l
-	if len(m.Query) > 0 {
-		dAtA[i] = 0xa
-		i++
-		i = encodeVarintLollipopgo(dAtA, i, uint64(len(m.Query)))
-		i += copy(dAtA[i:], m.Query)
-	}
-	if m.PageNumber != 0 {
-		dAtA[i] = 0x10
-		i++
-		i = encodeVarintLollipopgo(dAtA, i, uint64(m.PageNumber))
-	}
-	if m.ResultPerPage != 0 {
-		dAtA[i] = 0x18
-		i++
-		i = encodeVarintLollipopgo(dAtA, i, uint64(m.ResultPerPage))
-	}
-	return i, nil
-}
-
 func encodeVarintLollipopgo(dAtA []byte, offset int, v uint64) int {
 	for v >= 1<<7 {
 		dAtA[offset] = uint8(v&0x7f | 0x80)
@@ -511,6 +513,34 @@ func encodeVarintLollipopgo(dAtA []byte, offset int, v uint64) int {
 	dAtA[offset] = uint8(v)
 	return offset + 1
 }
+func (m *AddressBook) Size() (n int) {
+	var l int
+	_ = l
+	if len(m.People) > 0 {
+		for _, e := range m.People {
+			l = e.Size()
+			n += 1 + l + sovLollipopgo(uint64(l))
+		}
+	}
+	return n
+}
+
+func (m *SearchRequest) Size() (n int) {
+	var l int
+	_ = l
+	l = len(m.Query)
+	if l > 0 {
+		n += 1 + l + sovLollipopgo(uint64(l))
+	}
+	if m.PageNumber != 0 {
+		n += 1 + sovLollipopgo(uint64(m.PageNumber))
+	}
+	if m.ResultPerPage != 0 {
+		n += 1 + sovLollipopgo(uint64(m.ResultPerPage))
+	}
+	return n
+}
+
 func (m *Person) Size() (n int) {
 	var l int
 	_ = l
@@ -547,34 +577,6 @@ func (m *Person_PhoneNumber) Size() (n int) {
 	return n
 }
 
-func (m *AddressBook) Size() (n int) {
-	var l int
-	_ = l
-	if len(m.People) > 0 {
-		for _, e := range m.People {
-			l = e.Size()
-			n += 1 + l + sovLollipopgo(uint64(l))
-		}
-	}
-	return n
-}
-
-func (m *SearchRequest) Size() (n int) {
-	var l int
-	_ = l
-	l = len(m.Query)
-	if l > 0 {
-		n += 1 + l + sovLollipopgo(uint64(l))
-	}
-	if m.PageNumber != 0 {
-		n += 1 + sovLollipopgo(uint64(m.PageNumber))
-	}
-	if m.ResultPerPage != 0 {
-		n += 1 + sovLollipopgo(uint64(m.ResultPerPage))
-	}
-	return n
-}
-
 func sovLollipopgo(x uint64) (n int) {
 	for {
 		n++
@@ -587,6 +589,204 @@ func sovLollipopgo(x uint64) (n int) {
 }
 func sozLollipopgo(x uint64) (n int) {
 	return sovLollipopgo(uint64((x << 1) ^ uint64((int64(x) >> 63))))
+}
+func (m *AddressBook) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowLollipopgo
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= (uint64(b) & 0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: AddressBook: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: AddressBook: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field People", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowLollipopgo
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= (int(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthLollipopgo
+			}
+			postIndex := iNdEx + msglen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.People = append(m.People, &Person{})
+			if err := m.People[len(m.People)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipLollipopgo(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthLollipopgo
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *SearchRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowLollipopgo
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= (uint64(b) & 0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: SearchRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: SearchRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Query", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowLollipopgo
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= (uint64(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthLollipopgo
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Query = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PageNumber", wireType)
+			}
+			m.PageNumber = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowLollipopgo
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.PageNumber |= (int32(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 3:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ResultPerPage", wireType)
+			}
+			m.ResultPerPage = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowLollipopgo
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.ResultPerPage |= (int32(b) & 0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipLollipopgo(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthLollipopgo
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
 }
 func (m *Person) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
@@ -844,204 +1044,6 @@ func (m *Person_PhoneNumber) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *AddressBook) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowLollipopgo
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: AddressBook: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: AddressBook: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field People", wireType)
-			}
-			var msglen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowLollipopgo
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				msglen |= (int(b) & 0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if msglen < 0 {
-				return ErrInvalidLengthLollipopgo
-			}
-			postIndex := iNdEx + msglen
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.People = append(m.People, &Person{})
-			if err := m.People[len(m.People)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
-				return err
-			}
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipLollipopgo(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if skippy < 0 {
-				return ErrInvalidLengthLollipopgo
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *SearchRequest) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowLollipopgo
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= (uint64(b) & 0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: SearchRequest: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: SearchRequest: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Query", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowLollipopgo
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= (uint64(b) & 0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthLollipopgo
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Query = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 2:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field PageNumber", wireType)
-			}
-			m.PageNumber = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowLollipopgo
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.PageNumber |= (int32(b) & 0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		case 3:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field ResultPerPage", wireType)
-			}
-			m.ResultPerPage = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowLollipopgo
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.ResultPerPage |= (int32(b) & 0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		default:
-			iNdEx = preIndex
-			skippy, err := skipLollipopgo(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if skippy < 0 {
-				return ErrInvalidLengthLollipopgo
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
 func skipLollipopgo(dAtA []byte) (n int, err error) {
 	l := len(dAtA)
 	iNdEx := 0
@@ -1147,32 +1149,32 @@ var (
 	ErrIntOverflowLollipopgo   = fmt.Errorf("proto: integer overflow")
 )
 
-func init() { proto.RegisterFile("lollipopgo.proto", fileDescriptor_lollipopgo_34f070c209dcd835) }
+func init() { proto.RegisterFile("lollipopgo.proto", fileDescriptor_lollipopgo_8f61ea1f771b65de) }
 
-var fileDescriptor_lollipopgo_34f070c209dcd835 = []byte{
+var fileDescriptor_lollipopgo_8f61ea1f771b65de = []byte{
 	// 380 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x74, 0x52, 0x4d, 0x6b, 0xdb, 0x40,
-	0x14, 0xb4, 0x64, 0x59, 0xd4, 0x4f, 0xd8, 0x15, 0x8b, 0x69, 0x85, 0x29, 0xaa, 0xd1, 0xa1, 0x98,
-	0x16, 0x44, 0x71, 0xa1, 0x90, 0x63, 0x4c, 0x4c, 0x12, 0x12, 0x47, 0x62, 0x13, 0xf0, 0x25, 0x60,
-	0xe4, 0xe8, 0x21, 0x8b, 0xac, 0xb5, 0xeb, 0x95, 0x74, 0xf0, 0x2d, 0x3f, 0x21, 0x3f, 0x2b, 0xc7,
-	0xfc, 0x84, 0xe0, 0xfc, 0x91, 0xa0, 0x0f, 0x12, 0x41, 0xf0, 0xed, 0xbd, 0x99, 0x61, 0xdf, 0xcc,
-	0xb0, 0x60, 0x32, 0xce, 0x58, 0x2c, 0xb8, 0x88, 0xb8, 0x2b, 0x24, 0xcf, 0x38, 0x81, 0x53, 0xce,
-	0x82, 0x24, 0x72, 0x59, 0x16, 0x3a, 0x0f, 0x2a, 0xe8, 0x3e, 0xca, 0x94, 0x27, 0x84, 0x80, 0x96,
-	0x04, 0x1b, 0xb4, 0x94, 0x91, 0x32, 0xee, 0xd2, 0x72, 0x26, 0x7d, 0x50, 0xe3, 0xd0, 0x52, 0x47,
-	0xca, 0xb8, 0x43, 0xd5, 0x38, 0x24, 0x03, 0xe8, 0xe0, 0x26, 0x88, 0x99, 0xd5, 0x2e, 0x45, 0xd5,
-	0x42, 0xfe, 0x83, 0x2e, 0xd6, 0x3c, 0xc1, 0xd4, 0xd2, 0x46, 0xed, 0xb1, 0x31, 0xb1, 0xdd, 0x8f,
-	0x0b, 0x6e, 0xf5, 0xba, 0xeb, 0x17, 0x82, 0xab, 0x7c, 0xb3, 0x42, 0x49, 0x6b, 0xf5, 0x70, 0x01,
-	0x46, 0x03, 0x26, 0xdf, 0x40, 0x4f, 0xca, 0xa9, 0xb6, 0x50, 0x6f, 0xe4, 0x2f, 0x68, 0xd9, 0x4e,
-	0x60, 0x69, 0xa3, 0x3f, 0xf9, 0x71, 0xe8, 0xf1, 0x9b, 0x9d, 0x40, 0x5a, 0x2a, 0x9d, 0x3f, 0xd0,
-	0x7d, 0x87, 0x08, 0x80, 0x3e, 0xf7, 0xa6, 0xe7, 0x97, 0x33, 0xb3, 0x45, 0xbe, 0x80, 0x76, 0xe6,
-	0xcd, 0x67, 0xa6, 0x52, 0x4c, 0x0b, 0x8f, 0x5e, 0x98, 0xaa, 0x73, 0x04, 0xc6, 0x71, 0x18, 0x4a,
-	0x4c, 0xd3, 0x29, 0xe7, 0xf7, 0xe4, 0x37, 0xe8, 0x02, 0xb9, 0x60, 0x45, 0x11, 0x45, 0x18, 0xf2,
-	0xf9, 0x1e, 0xad, 0x15, 0x4e, 0x02, 0xbd, 0x6b, 0x0c, 0xe4, 0xdd, 0x9a, 0xe2, 0x36, 0xc7, 0x34,
-	0x2b, 0xfa, 0xd9, 0xe6, 0x28, 0x77, 0x75, 0x82, 0x6a, 0x21, 0x3f, 0xc1, 0x10, 0x41, 0x84, 0xcb,
-	0x3a, 0x5d, 0x55, 0x27, 0x14, 0x50, 0x9d, 0xfc, 0x17, 0x7c, 0x95, 0x98, 0xe6, 0x2c, 0x5b, 0x0a,
-	0x94, 0xcb, 0x82, 0x28, 0x0b, 0xee, 0xd0, 0x5e, 0x05, 0xfb, 0x28, 0xfd, 0x20, 0xc2, 0xc9, 0x2d,
-	0x0c, 0x1a, 0x56, 0x3d, 0x81, 0x32, 0xc8, 0x62, 0x9e, 0x90, 0x13, 0xe8, 0x47, 0x98, 0x35, 0x53,
-	0x7c, 0x6f, 0xba, 0x6e, 0x10, 0xc3, 0x43, 0x84, 0xd3, 0x9a, 0x9a, 0x4f, 0x7b, 0x5b, 0x79, 0xde,
-	0xdb, 0xca, 0xcb, 0xde, 0x56, 0x1e, 0x5f, 0xed, 0xd6, 0x4a, 0x2f, 0x3f, 0xcc, 0xbf, 0xb7, 0x00,
-	0x00, 0x00, 0xff, 0xff, 0x0d, 0xbd, 0xce, 0x18, 0x44, 0x02, 0x00, 0x00,
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x74, 0x92, 0xd1, 0x8a, 0xd3, 0x40,
+	0x14, 0x86, 0x3b, 0x69, 0x1a, 0xec, 0x09, 0xad, 0x61, 0x28, 0x1a, 0x8a, 0xc4, 0x92, 0x0b, 0x29,
+	0x0a, 0x41, 0x2a, 0x08, 0x5e, 0x5a, 0x2c, 0x2a, 0x5a, 0x13, 0x46, 0xa1, 0x37, 0x42, 0x49, 0xcd,
+	0x21, 0x0d, 0x4e, 0x33, 0xd3, 0x49, 0x72, 0xd1, 0x3b, 0x1f, 0xc1, 0xc7, 0xda, 0xcb, 0x7d, 0x84,
+	0xa5, 0xfb, 0x22, 0x4b, 0x26, 0x61, 0x37, 0xb0, 0xf4, 0x6e, 0xce, 0x7f, 0x3e, 0xce, 0xf9, 0x7f,
+	0xce, 0x80, 0xc3, 0x05, 0xe7, 0x99, 0x14, 0x32, 0x15, 0x81, 0x54, 0xa2, 0x14, 0x14, 0x3e, 0x0b,
+	0x1e, 0xe7, 0x69, 0xc0, 0xcb, 0xc4, 0xff, 0x00, 0xf6, 0xc7, 0x24, 0x51, 0x58, 0x14, 0x4b, 0x21,
+	0xfe, 0xd2, 0xd7, 0x60, 0x49, 0x14, 0x92, 0xa3, 0x4b, 0x66, 0xfd, 0xb9, 0xbd, 0xa0, 0xc1, 0x03,
+	0x1b, 0x44, 0xa8, 0x0a, 0x91, 0xb3, 0x96, 0xf0, 0x73, 0x18, 0xfd, 0xc4, 0x58, 0xfd, 0xd9, 0x33,
+	0x3c, 0x56, 0x58, 0x94, 0x74, 0x02, 0x83, 0x63, 0x85, 0xea, 0xe4, 0x92, 0x19, 0x99, 0x0f, 0x59,
+	0x53, 0xd0, 0x97, 0x60, 0xcb, 0x38, 0xc5, 0x6d, 0x5e, 0x1d, 0x76, 0xa8, 0x5c, 0x63, 0x46, 0xe6,
+	0x03, 0x06, 0xb5, 0xf4, 0x43, 0x2b, 0xf4, 0x15, 0x3c, 0x55, 0x58, 0x54, 0xbc, 0xdc, 0x4a, 0x54,
+	0xdb, 0xba, 0xe1, 0xf6, 0x35, 0x34, 0x6a, 0xe4, 0x08, 0x55, 0x14, 0xa7, 0xe8, 0xff, 0x33, 0xc0,
+	0x6a, 0x2c, 0x50, 0x0a, 0x66, 0x1e, 0x1f, 0xb0, 0x5d, 0xa4, 0xdf, 0x74, 0x0c, 0x46, 0x96, 0xb4,
+	0xe3, 0x8d, 0x2c, 0xa9, 0xdd, 0xe0, 0x21, 0xce, 0xb8, 0x1e, 0x36, 0x64, 0x4d, 0x41, 0xdf, 0x83,
+	0x25, 0xf7, 0x22, 0xc7, 0xc2, 0x35, 0x75, 0x40, 0xef, 0x71, 0xc0, 0x20, 0xaa, 0x81, 0xc6, 0x1c,
+	0x6b, 0xe9, 0xe9, 0x06, 0xec, 0x8e, 0x4c, 0x9f, 0x81, 0xd5, 0xe6, 0x69, 0x2c, 0xb4, 0x15, 0x7d,
+	0x0b, 0x66, 0x79, 0x92, 0xa8, 0x6d, 0x8c, 0x17, 0x2f, 0x2e, 0x0d, 0xff, 0x75, 0x92, 0xc8, 0x34,
+	0xe9, 0xbf, 0x81, 0xe1, 0xbd, 0x44, 0x01, 0xac, 0x75, 0xb8, 0xfc, 0xfa, 0x7d, 0xe5, 0xf4, 0xe8,
+	0x13, 0x30, 0xbf, 0x84, 0xeb, 0x95, 0x43, 0xea, 0xd7, 0x26, 0x64, 0xdf, 0x1c, 0x63, 0xf1, 0x1b,
+	0x26, 0x9d, 0x6b, 0x85, 0x12, 0x55, 0x5c, 0x66, 0x22, 0xa7, 0x9f, 0x60, 0x9c, 0x62, 0xd9, 0x3d,
+	0xe4, 0xf3, 0xee, 0xea, 0x4e, 0x63, 0x7a, 0xa9, 0xe1, 0xf7, 0x96, 0xce, 0xd5, 0xd9, 0x23, 0xd7,
+	0x67, 0x8f, 0xdc, 0x9c, 0x3d, 0xf2, 0xff, 0xd6, 0xeb, 0xed, 0x2c, 0xfd, 0x61, 0xde, 0xdd, 0x05,
+	0x00, 0x00, 0xff, 0xff, 0x74, 0x28, 0xe9, 0x0e, 0x44, 0x02, 0x00, 0x00,
 }

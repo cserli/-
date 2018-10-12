@@ -48,6 +48,7 @@ func TJWanJiaData(w http.ResponseWriter, req *http.Request) {
 }
 
 // 主函数  http + grpc 高性能的数据处理操作
+// 网关 服务器
 func main() {
 
 	// 建立一个路由表
