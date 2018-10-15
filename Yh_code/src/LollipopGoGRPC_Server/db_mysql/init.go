@@ -5,7 +5,9 @@ import (
 	"fmt"
 	"glog-master"
 	"runtime"
+
 	//	"time"
+	"fmt"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -16,7 +18,11 @@ var db *sql.DB
 // 数据操作  线程池的使用操作
 // 短信验证接口 微信认证接口操作
 func init() {
-	db, _ = sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/test?charset=utf8")
+	db, err = sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/test?charset=utf8")
+	if err != nil {
+		fmt.Println("链接数据库错误：", err.Error())
+		return
+	}
 	db.SetMaxOpenConns(2000)
 	db.SetMaxIdleConns(1000)
 	db.Ping()

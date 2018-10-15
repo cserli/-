@@ -34,8 +34,9 @@ import (
 	"time"
 )
 
+// 初始化操作
 func init() {
-
+	// 日志初始化
 	flag.Set("alsologtostderr", "true") // 日志写入文件的同时，输出到stderr
 	flag.Set("log_dir", "./log")        // 日志文件保存目录
 	flag.Set("v", "3")                  // 配置V输出的等级。
@@ -49,7 +50,7 @@ type loct struct {
 	i, j int
 }
 
-//  数据定义
+// 数据定义
 var (
 	area = [20][20]byte{} // 记录了蛇、食物的信息
 	food bool             // 当前是否有食物
