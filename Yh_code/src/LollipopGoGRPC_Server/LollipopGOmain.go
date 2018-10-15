@@ -16,13 +16,13 @@
  *
  */
 
- //   proto
+//   proto
 //go:generate protoc -I ../helloworld --go_out=plugins=grpc:../helloworld ../helloworld/helloworld.proto
 
 package main
 
 import (
-	//	"LollipopGoGRPC_Server/db_mysql"
+	_ "LollipopGoGRPC_Server/db_mysql"
 	//	"glog-master"
 	"log"
 	"net"

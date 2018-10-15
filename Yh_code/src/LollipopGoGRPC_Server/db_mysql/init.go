@@ -7,17 +7,18 @@ import (
 	"runtime"
 
 	//	"time"
-	"fmt"
 
 	_ "github.com/go-sql-driver/mysql"
 )
 
 // 初始化操作
 var db *sql.DB
+var err error
 
 // 数据操作  线程池的使用操作
 // 短信验证接口 微信认证接口操作
 func init() {
+	fmt.Println("初始化数据库")
 	db, err = sql.Open("mysql", "root:@tcp(127.0.0.1:3306)/test?charset=utf8")
 	if err != nil {
 		fmt.Println("链接数据库错误：", err.Error())
