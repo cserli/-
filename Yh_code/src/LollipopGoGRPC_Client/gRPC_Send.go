@@ -86,6 +86,7 @@ func WenDaOrTuCao(strnickName, stravatarUrl, strdata string, w http.ResponseWrit
 	ddd := SSSSbak{
 		Data: encodeString,
 	}
+
 	bb, _ := json.Marshal(ddd)
 	log.Printf("Greeting b: %s", string(bb))
 	// fmt.Fprint(w, string(bb))
