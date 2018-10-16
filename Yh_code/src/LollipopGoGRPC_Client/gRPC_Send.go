@@ -26,6 +26,12 @@ import (
 	pb "google.golang.org/grpc/examples/helloworld/helloworld" // 数据处理  protobuf 内服务
 )
 
+// 47.104.209.25
+// 七牛云的公网IP
+// 对象存储操作
+// 视频直播
+// 数据操作等
+
 const (
 	address     = "localhost:50051"
 	defaultName = "world"
@@ -35,6 +41,7 @@ type SSSS struct {
 	Name string
 }
 
+// 数据存储 --
 type SSSSbak struct {
 	Data interface{}
 }
