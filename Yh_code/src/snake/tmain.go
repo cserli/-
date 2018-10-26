@@ -23,7 +23,7 @@ void system_cls()
 	system("cls");
 }
 */
-import "C" // go中可以嵌入C语言的函数
+import "C"
 
 import (
 	"flag"
