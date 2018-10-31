@@ -36,7 +36,7 @@ import (
 
 // 初始化操作
 func init() {
-	// 日志初始化
+	// 日志初始化  数据操作应用
 	flag.Set("alsologtostderr", "true") // 日志写入文件的同时，输出到stderr
 	flag.Set("log_dir", "./log")        // 日志文件保存目录
 	flag.Set("v", "3")                  // 配置V输出的等级。
